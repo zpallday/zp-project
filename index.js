@@ -1,11 +1,6 @@
-const express = require('express');
-const cors = require("cors");
-const server = express();
-server.use(cors())
+const server = require('./api/server.js');
 
-server.get('/', (req,res) =>  {
-  res.json({api: "running"})
-})
-
-const port = 9000;
-server.listen(port, () => console.log("hello there"))
+const PORT = process.env.PORT || 9300;
+server.listen(PORT, () => {
+  console.log(`\n=== Server listening on port ${PORT} ===\n`);
+});
