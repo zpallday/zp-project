@@ -1,10 +1,10 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const userFunc = require("./userRoute.js");
+const userFunc = require("../models/userModel");
 const db = require("../config/dbConfig");
-const router = express.Route();
-
+const router = express.Router();
+router.use(express.json());
 
 router.get("/", (req, res) => {
   userFunc.getAll().then(users => {

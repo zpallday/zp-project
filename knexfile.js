@@ -1,20 +1,46 @@
+// Update with your config settings.
+
 module.exports = {
+
   development: {
     client: 'sqlite3',
-    useNullAsDefault: true,
     connection: {
-      filename: './database/auth222.db3',
-    },
-    pool: {
-      afterCreate: (conn, done) => {
-        conn.run('PRAGMA foreign_keys = ON', done);
-      },
+      filename: './data/dev.sqlite3'
     },
     migrations: {
-      directory: './database/migrations',
+      directory: "./data/migrations"
+    }, 
+    seeds: {
+      directory: "./data/seeds"
+    },
+    useNullAsDefault: true,
+  },
+
+  production: {
+    client: "pg",
+    connection: process.env.DATABASE_URL,
+        migrations: {
+      directory: "./data/migrations"
     },
     seeds: {
-      directory: './database/seeds',
+      directory: "./data/seeds"
     },
+    useNullAsDefault: true,
+  },
+
+
+
+  testing: {
+    client: "sqlite3",
+    connection: {
+      filename: "./data/test.sqlite3"
+    },
+    migrations: {
+      directory: "./data/migrations"
+    },
+    seeds: {
+      directory: "./data/seeds"
+    },
+    
   },
 };

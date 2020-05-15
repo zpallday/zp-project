@@ -2,7 +2,7 @@ const express = require("express");
 const server = express();
 const cors = require("cors");
 const authRoute = require("./userRoute");
-const auth = require('./middleware/auth')
+const auth = require('./auth')
 server.use(cors())
 
 server.get('/', (req, res) => {

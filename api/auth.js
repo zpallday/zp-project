@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const secrets = require('../secrets')
+const secrets = require('../config/secrets')
 
 // secrets = secrets[process.env.NODE_ENV];
 
