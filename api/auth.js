@@ -8,7 +8,7 @@ module.exports =  {
   const token = req.headers.authorization;
     jwt.verify(token, secrets.jwtSecret, (error, decodedToken) => {
     if (error) {
-      res.status(401).json({ you: 'shall not pass!' })
+      res.status(401).json({ you: 'shall not passes!' })
     }
       req.decodedToken = decodedToken
       next()
